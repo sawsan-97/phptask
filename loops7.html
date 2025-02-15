@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+</head>
+<body>
+
+<table border="1" cellpadding="3px" cellspacing="0px">
+    <?php
+    $rows = 6; // Number of rows
+    $cols = 5; // Number of columns
+
+    for ($i = 1; $i <= $rows; $i++) {
+        echo "<tr>";
+        for ($j = 1; $j <= $cols; $j++) {
+            $result = $i * $j;
+            echo "<td>$i * $j = $result</td>";
+        }
+        echo "</tr>";
+    }
+    ?>
+</table>
+
+</body>
+</html>

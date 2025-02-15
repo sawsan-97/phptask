@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<body>
+    <h2>simple calculator</h2>
+    <form method="POST">
+    <input type="number" name ="num1" placeholder="Enter first number"required>
+    <input type="number" name ="num2" placeholder="Entern second number"required>
+    <select name="operation" >
+    <option value="add">Addition</option>
+    <option value="subtract">Subtract</option>
+    <option value="multiply">Multiplication</option>
+    <option value="divide">Division</option>
+    </select>
+    <input type="submit" name="calculate"value="calculate">
+    </form>
+    <?php
+    if ($_SERVER["REQUEDT_METHOD"]=="POST"){
+        $Num1 = $_POST["Num1"];
+        $Num2 = $_POST["Num2"];
+        $operation = $_POST['operation'];
+        $result=0;
+        switch ($operation) {
+            case 'add':
+              $result=$Num1+$Num2;
+            
+                break;
+            
+           case 'subtract':
+          $result=$Num1-$Num2;
+
+             break;
+             case 'multiply':
+                $result=$Num1*$Num2;
+
+                break;
+                case 'divide':
+                    if ($Num2 != 0) {
+                       $result=$Num1/$Num2;
+                    }else{
+                        echo "error :division by zero";
+                        exit();
+
+                    }
+                    break;
+             default:
+             echo "invalid operation selected";
+             exit();
+        }
+        echo "<h3>result : $result</h3>";
+    }
+    ?>
+</body>
+</html>
